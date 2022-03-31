@@ -11,6 +11,7 @@ Tehnologije koje će se koristiti pri izradi web aplikacije:
 -CSS3
 -Bootstrap
 -PHP
+-Node.js
 -React.js
 -SQL server
 
