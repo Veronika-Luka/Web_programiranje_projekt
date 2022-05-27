@@ -8,29 +8,23 @@ input[type=text], input[type=password] {
   border: 1px solid #ccc;
   box-sizing: border-box;
 }
-#translator{
-  float: right;
-  margin-right: 0.5%;
-  font-size: 17px;
-  padding: 5px 14px; 
-  background-color: #804000;
-  color: white;
-}
-
 #login{
   float: right;
   margin-right: 5%;
+  background-image: linear-gradient(#612980, #808080);
 }
 #register{
   float: right;
   margin-right: 0.5%;
+  background-image: linear-gradient(#612980, #808080);
 }
-#carbtn{
+#carbtn{ /*košarica*/
   float: right;
   margin-right: 0.5%;
   font-size: 17px;
   padding: 5px 14px; 
-  background-color: #804000;
+  background-color:  #612980;
+  background-image: linear-gradient(#612980, #808080);
   color: white;
 }
 #carbtn:hover{
@@ -41,19 +35,18 @@ input[type=text], input[type=password] {
 
 /* Set a style for all buttons */
 .loginbuttons {
-  background-color: #804000;
+  background-color: #612980;
   color: white;
   padding: 7px 15px;
-  
   border: none;
   cursor: pointer;
   width: 100%;
 }
 #colsub1{
-background-color: #04AA6D;
+background-color: green;
 }
 #colsub2{
-  background-color: #04AA6D;
+  background-color: green;
   }
 
 .loginbuttons:hover {
@@ -65,7 +58,8 @@ background-color: #04AA6D;
 .cancelbtn {
   width: auto;
   padding: 10px 18px;
-  background-color: #f44336;
+  background-color: red;
+  color: whitesmoke;
 }
 
 /* Center the image and position the close button */
@@ -161,8 +155,7 @@ body{
 
 .search{
         
-        color: #555;
-       
+        color: rgb(23, 22, 22);
         padding: 2px;
         border: 1px solid currentColor;
         border-radius: 5px;
@@ -170,7 +163,8 @@ body{
         float: right;
         margin-top: 5px;
         margin-right: 20px;
-        background-color:#cc6600;
+        background-color:#29043D;
+        background-image: linear-gradient(to right,#29043D, /*#8C63A3*/#B88ECF);
         
       
 }
@@ -186,7 +180,7 @@ input[type="search"] {
   }
   
   input[type="search"]::placeholder {
-    color: #bbb;
+    color: rgb(204, 204, 204);
    
   
   }
@@ -196,6 +190,7 @@ input[type="search"] {
     width: 40px;
     padding: 0;
     margin: 0;
+    
     border: 1px solid transparent;
     border-radius: inherit;
     background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat center;
@@ -208,8 +203,8 @@ input[type="search"] {
   }
 .btnSearch:focus,
 input[type="search"]:focus {
-  box-shadow: 0 0 3px 0 black;
-  border-color: black;
+  box-shadow: 0 0 3px 0 white;
+  border-color: white;
   outline: none;
 }
 #logo{
@@ -222,8 +217,8 @@ input[type="search"]:focus {
 
 .topnav {
   clear: both;
-
-  background-color:#804000; 
+  background-color:#29043D/*#572473*/; 
+  background-image: linear-gradient(to right,#3D055C, #FFFFFF);
 }
 
 
@@ -240,12 +235,12 @@ input[type="search"]:focus {
 
 
 .topnav a:hover, .dropdown:hover .dropbtn {
-  background-color:#cc6600;
-  color: black;
+  background-color:#572473;
+  color: white;
 }
 
 .active {
-  background-color: #c04000;
+  background-color: #29043D;
   color: white;
 }
 
@@ -280,7 +275,7 @@ input[type="search"]:focus {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #cc6600;
+  background-color: #29043D;
   min-width: 150px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
@@ -288,7 +283,7 @@ input[type="search"]:focus {
 
 .dropdown-content a {
   float: none;
-  color: black;
+  color: white;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
@@ -296,7 +291,7 @@ input[type="search"]:focus {
 }
 
 .dropdown-content a:hover {
- background-color:#ffc40c;
+ background-color:#572473;
 }
 
 
