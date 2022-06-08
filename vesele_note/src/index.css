@@ -1,0 +1,313 @@
+
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+#login{
+  float: right;
+  margin-right: 5%;
+  background-image: linear-gradient(#612980, #808080);
+}
+#register{
+  float: right;
+  margin-right: 0.5%;
+  background-image: linear-gradient(#612980, #808080);
+}
+#carbtn{ /*košarica*/
+  float: right;
+  margin-right: 0.5%;
+  font-size: 17px;
+  padding: 5px 14px; 
+  background-color:  #612980;
+  background-image: linear-gradient(#612980, #808080);
+  color: white;
+}
+#carbtn:hover{
+  opacity: 0.9;
+  color: #000;
+}
+
+
+/* Set a style for all buttons */
+.loginbuttons {
+  background-color: #612980;
+  color: white;
+  padding: 7px 15px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+#colsub1{
+background-color: green;
+}
+#colsub2{
+  background-color: green;
+  }
+
+.loginbuttons:hover {
+  opacity: 0.9;
+  color: #000;
+}
+
+/* Extra styles for the cancel button */
+#cancelbtn1 {
+  width: auto;
+  padding: 10px 18px;
+  background-color: red;
+  color: whitesmoke;
+}
+#cancelbtn2 {
+  width: auto;
+  padding: 10px 18px;
+  background-color: red;
+  color: whitesmoke;
+}
+
+/* Center the image and position the close button */
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: hidden; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+
+
+.logo_container{
+    margin-left: 20px;
+    
+    margin-right:20px;
+
+   
+}
+body{
+  font-family: "Times New Roman", Times, garamond;
+}
+
+
+
+.search{
+        
+        color: rgb(23, 22, 22);
+        padding: 2px;
+        border: 1px solid currentColor;
+        border-radius: 5px;
+        width: fit-content;
+        float: right;
+        margin-top: 5px;
+        margin-right: 20px;
+        background-color:#29043D;
+        background-image: linear-gradient(to right,#29043D, /*#8C63A3*/#B88ECF);
+        
+      
+}
+input[type="search"] {
+    border: none;
+    background: transparent;
+    margin: 0;
+    padding: 7px 8px;
+    font-size: 14px;
+    color: white;
+    border: 1px solid transparent;
+    border-radius: inherit;
+  }
+  
+  input[type="search"]::placeholder {
+    color: rgb(204, 204, 204);
+   
+  
+  }
+   .btnSearch {
+    text-indent: -999px;
+    overflow: hidden;
+    width: 40px;
+    padding: 0;
+    margin: 0;
+    
+    border: 1px solid transparent;
+    border-radius: inherit;
+    background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat center;
+    cursor: pointer;
+    opacity: 0.7;
+  }
+  
+  .btnSearch:hover {
+    opacity: 1;
+  }
+.btnSearch:focus,
+input[type="search"]:focus {
+  box-shadow: 0 0 3px 0 white;
+  border-color: white;
+  outline: none;
+}
+#logo{
+    
+    margin-left: 2%;
+    margin-top: 2%;
+}
+
+
+
+.topnav {
+  clear: both;
+  background-color:#29043D/*#572473*/; 
+  background-image: linear-gradient(to right,#3D055C, #FFFFFF);
+}
+
+
+.topnav a{
+  
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 16px;
+ 
+}
+
+
+.topnav a:hover, .dropdown:hover .dropbtn {
+  background-color:#572473;
+  color: white;
+}
+
+.active {
+  background-color: #29043D;
+  color: white;
+}
+
+/* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */
+
+@media screen and (max-width: 500px) {
+  .topnav a {
+    float: none;
+    display: block;
+  }
+}
+
+
+.dropdown {
+  float: left;
+
+  display: block;
+ 
+}
+
+.dropdown .dropbtn {
+  
+  font-size: 16px;  
+  border: none;
+  outline: none;  
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #29043D;
+  min-width: 150px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+ background-color:#572473;
+}
+
+
+.dropdown:hover .dropdown-content {
+  display: block;  
+}
+.topnav:after {
+  content:'';
+  clear:both;
+  display:table;
+}
+
+@media (max-width: 767.98px) { .border-sm-start-none { border-left: none !important; } }
