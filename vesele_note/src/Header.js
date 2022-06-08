@@ -1,31 +1,33 @@
-import { useState } from "react";
+
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import Login from "./Login";
-import Register from "./Register";
+
+ 
+
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+
 
 
 const Header = () => {
 
-    const [isOpenLogin, setIsOpenLogin] = useState(false);
-    const [isOpenRegister, setIsOpenRegister] = useState(false);
+   
+    
+
+
+
     return ( 
         
 <div className="header">
-        <button  onClick={() => setIsOpenLogin(true)}  style={{width:"auto"}}  className="loginbuttons" id="login">Prijava</button>
-        {isOpenLogin && <Login setIsOpenLogin={setIsOpenLogin} />}
 
-       
-
-    <button onClick={() => setIsOpenRegister(true)} style={{width:"auto"}}className="loginbuttons" id="register">Registracija</button>
-    {isOpenRegister && <Register setIsOpenRegister={setIsOpenRegister} />}
+        <Link to="/favorites"><button style={{width:"auto"}}  className="loginbuttons" id="login">Favoriti</button></Link>
    
 
-    <button type="button"  id="carbtn"><AiOutlineShoppingCart/></button>
+        <Link type="button"  id="carbtn" to="/cart"><AiOutlineShoppingCart/></Link>
 
         <div className="logo_container">
             <div id="logo"><img src={require('./HappyLogo.png')}  />
             </div>
         </div>
+        
 
 </div>
      );

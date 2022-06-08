@@ -6,14 +6,14 @@ import {collection,  getDocs,addDoc}
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 
-const Cards = () => {
+const BrandCards = () => {
     const [products, setProducts] = useState([])
     const [favorites, setFavorites]=useState([])
-    const [disable, setDisable]=useState(false);
+    const [favorit, setDisable]=useState([]);
     const productsCollectionRef=collection(db, 'proizvodi')
     const cartsCollectionRef=collection(db, 'kosarica')
     const favoritsColletionRef=collection(db,'favoriti');
-    const {tag} = useParams();
+    const {brand} = useParams();
 
     const createCart = async (product) =>{
       
@@ -23,8 +23,8 @@ const Cards = () => {
     const createFavorite = async (product) =>{
       getFavorites();
       const filtered=favorites.filter((favorite)=>favorite.name==product.name);
-      if(filtered.length==0  ){
-       
+      if(filtered.length==0){
+        
       await addDoc(favoritsColletionRef, {name:product.name, picture:product.picture, price:product.price, 
         manufacturer: product.manufacturer, description:product.description})
         alert("Dodali ste proizvod u favorite")
@@ -32,7 +32,6 @@ const Cards = () => {
     else(
       alert("Proizvod je već dodan u favorite")
     )
-   
    
     }
     const getFavorites = async () => {
@@ -47,17 +46,21 @@ const Cards = () => {
           const data= await getDocs(productsCollectionRef);
           setProducts(data.docs.map((doc)=>({...doc.data(), id:doc.id}))); 
         };
-    
-      
+        
     
     
         getProducts();
         getFavorites();
       }, []);
 
-    return (
+
+      
+   
+
+
+    return (  
         <div className="Cards">
-        {products.filter( (product) => product.tag1===tag || product.tag2===tag).map((product) =>{
+        {products.filter( (product) => product.manufacturer.toLowerCase()===brand).map((product) =>{
             return (
                 <div className="container py-5">
                 <div className="row justify-content-center mb-3">
@@ -115,9 +118,7 @@ const Cards = () => {
         })}
         </div>
        
-       
-
-      );
+    );
 }
  
-export default Cards;
+export default BrandCards;

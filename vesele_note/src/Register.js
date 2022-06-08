@@ -1,25 +1,55 @@
+import {auth} from './firebase-authentication-config'
+import {
+    createUserWithEmailAndPassword,
+   } from 'firebase/auth'
+  import { useState, } from 'react';
+  import { useHistory } from 'react-router-dom';
 
 
 const Register = ({setIsOpenRegister}) => {
+  
+  const [registerEmail, setRegisterEmail]=useState('');
+  const [registerPassword, setRegisterPassword]=useState('');
+  const history = useHistory();
+
+    const register = async() => {
+    
+        try{
+          const user=await createUserWithEmailAndPassword(
+            auth, 
+            registerEmail, 
+            registerPassword
+            );
+          console.log(user);
+          alert(user)
+          history.push("/")
+       
+        }
+        catch(error){
+          console.log(error.message);
+          alert(error.message)
+        }
+
+    }
+
     return ( 
         <div id="id02" className="modal" style={{display:"block"}}>
     
-        <form className="modal-content animate"  method="post">
+        <form className="modal-content animate"  >
         <div className="imgcontainer">
         <span onClick={() => setIsOpenRegister(false)} className="close" title="Close Modal">X</span>
         </div>
 
         <div className="container">
-        <label for="uname"><b>Korisničko ime</b></label>
-        <input type="text" placeholder="Unesi korisničko ime" name="uname" required/>
+        <label for="uname"><b>E-mail adresa</b></label>
+        <input type="text" placeholder="Unesi e-mail adresu" name="uname" required onChange={(e) =>{setRegisterEmail(e.target.value)}}/>
 
         <label for="psw"><b>Lozinka</b></label>
-        <input type="password" placeholder="Unesi lozinku" name="psw" required/>
+        <input type="password" placeholder="Unesi lozinku" name="psw" required onChange={(e) =>{setRegisterPassword(e.target.value)}}/>
 
-        <label for="psw"><b>Ponovite lozinku</b></label>
-        <input type="password" placeholder="Ponovno unesite lozinku" name="psw" required/>
+      
             
-        <button type="submit" className="loginbuttons" id="colsub2">Registriraj se</button>
+        <button type="submit" className="loginbuttons" id="colsub2" onClick={register}>Registriraj se</button>
         <label>
             
         </label>
@@ -33,5 +63,6 @@ const Register = ({setIsOpenRegister}) => {
     </div>
      );
 }
+
  
 export default Register;
