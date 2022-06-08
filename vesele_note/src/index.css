@@ -8,12 +8,17 @@ input[type=text], input[type=password] {
   border: 1px solid #ccc;
   box-sizing: border-box;
 }
-#login{
+#logout{
   float: right;
   margin-right: 5%;
   background-image: linear-gradient(#612980, #808080);
 }
-#register{
+#login{
+  float: right;
+  margin-right: 0.5%;
+  background-image: linear-gradient(#612980, #808080);
+}
+#favs{
   float: right;
   margin-right: 0.5%;
   background-image: linear-gradient(#612980, #808080);
@@ -22,7 +27,7 @@ input[type=text], input[type=password] {
   float: right;
   margin-right: 0.5%;
   font-size: 17px;
-  padding: 5px 14px; 
+  padding: 6px 14px; 
   background-color:  #612980;
   background-image: linear-gradient(#612980, #808080);
   color: white;
@@ -37,7 +42,7 @@ input[type=text], input[type=password] {
 .loginbuttons {
   background-color: #612980;
   color: white;
-  padding: 7px 15px;
+  padding: 7px 14px;
   border: none;
   cursor: pointer;
   width: 100%;
@@ -167,7 +172,7 @@ body{
         border-radius: 5px;
         width: fit-content;
         float: right;
-        margin-top: 5px;
+        margin-top: 2px;
         margin-right: 20px;
         background-color:#29043D;
         background-image: linear-gradient(to right,#29043D, /*#8C63A3*/#B88ECF);
@@ -178,7 +183,7 @@ input[type="search"] {
     border: none;
     background: transparent;
     margin: 0;
-    padding: 7px 8px;
+    padding: 3px 8px;
     font-size: 14px;
     color: white;
     border: 1px solid transparent;
@@ -193,13 +198,12 @@ input[type="search"] {
    .btnSearch {
     text-indent: -999px;
     overflow: hidden;
-    width: 40px;
-    padding: 0;
+    width: 30px;
+    height: 30px;
     margin: 0;
-    
     border: 1px solid transparent;
     border-radius: inherit;
-    background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat center;
+    background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='15' class='bi bi-search' viewBox='0 0 19 19'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat center;
     cursor: pointer;
     opacity: 0.7;
   }
@@ -227,27 +231,31 @@ input[type="search"]:focus {
   background-image: linear-gradient(to right,#3D055C, #FFFFFF);
 }
 
-
-.topnav a{
-  
+.topnav link{
   float: left;
   color: #f2f2f2;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
   font-size: 16px;
- 
 }
-
 
 .topnav a:hover, .dropdown:hover .dropbtn {
   background-color:#572473;
   color: white;
 }
 
-.active {
-  background-color: #29043D;
+.homebutton {
+  float: left;
+  display: block;
+  height: 26px;
+  width: 36px;
+  margin: 13px 10px 0px 10px;
   color: white;
+}
+
+.homebutton:hover{
+  color: #c929d4;
 }
 
 /* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */
@@ -259,16 +267,12 @@ input[type="search"]:focus {
   }
 }
 
-
 .dropdown {
   float: left;
-
   display: block;
- 
 }
 
 .dropdown .dropbtn {
-  
   font-size: 16px;  
   border: none;
   outline: none;  
@@ -278,6 +282,7 @@ input[type="search"]:focus {
   font-family: inherit;
   margin: 0;
 }
+
 .dropdown-content {
   display: none;
   position: absolute;
@@ -300,10 +305,10 @@ input[type="search"]:focus {
  background-color:#572473;
 }
 
-
 .dropdown:hover .dropdown-content {
   display: block;  
 }
+
 .topnav:after {
   content:'';
   clear:both;
@@ -311,3 +316,68 @@ input[type="search"]:focus {
 }
 
 @media (max-width: 767.98px) { .border-sm-start-none { border-left: none !important; } }
+
+.carousel img{
+  /*background-color: #572473;*/
+  background-color: white;
+  cursor: pointer;
+}
+
+.searchTitle{
+  font-family: 'Times New Roman', Times, serif;
+  margin: 30px 0 0px 30px;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 18px;
+  color: #29043D;
+}
+
+.texts{
+  font-family: 'Times New Roman', Times, serif;
+  margin-top: 30px;
+  margin-left: 50px;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 18px;
+  color: #29043D;
+}
+
+.main-footer {
+  margin-top: 100px;
+  color: rgb(5, 5, 5);
+  background-image: linear-gradient(to bottom, rgba(255,0,0,0), #29043D);
+  padding-top: 3em;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+/*
+.instagram, .facebook, .twitter, .youtube{
+  color: #29043D;
+  width: 20px;
+  height: 20px;
+  margin: 5px;
+}*/
+
+.instagram, .facebook, .twitter, .youtube{
+  color: #29043D;
+  width: 30px;
+  height: 30px;
+  margin: 10px;
+}
+
+.visa,.mastercard, .american, .diners{
+  color: #29043D;
+  width: 60px;
+  height: 40px;
+  margin: 5px;
+}
+
+.money{
+  color: #29043D;
+  width: 60px;
+  height: 40px;
+  margin-top: 5px;
+  margin-left: 35px;
+}
+

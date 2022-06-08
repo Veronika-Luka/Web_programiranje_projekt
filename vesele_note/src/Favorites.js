@@ -1,63 +1,37 @@
-import { db } from "./firebase-config";
+
 import {useState, useEffect} from "react"
-import {collection,  getDocs,addDoc}
- from 'firebase/firestore';
+import {db} from './firebase-config'
+import {collection,  getDocs,deleteDoc,doc} from 'firebase/firestore';
+import { async } from '@firebase/util';
 
-import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 
-const Cards = () => {
-    const [products, setProducts] = useState([])
-    const [favorites, setFavorites]=useState([])
-    const [disable, setDisable]=useState(false);
-    const productsCollectionRef=collection(db, 'proizvodi')
-    const cartsCollectionRef=collection(db, 'kosarica')
-    const favoritsColletionRef=collection(db,'favoriti');
-    const {tag} = useParams();
+const Favorites  = () => {
+    const [favorit, setFavorit] = useState([])
+    const favoritesCollectionRef=collection(db, 'favoriti');
 
-    const createCart = async (product) =>{
-      
-      await addDoc(cartsCollectionRef, {name:product.name, picture:product.picture, price:product.price, manufacturer: product.manufacturer})
-  
-    }
-    const createFavorite = async (product) =>{
-      getFavorites();
-      const filtered=favorites.filter((favorite)=>favorite.name==product.name);
-      if(filtered.length==0  ){
-       
-      await addDoc(favoritsColletionRef, {name:product.name, picture:product.picture, price:product.price, 
-        manufacturer: product.manufacturer, description:product.description})
-        alert("Dodali ste proizvod u favorite")
-    }
-    else(
-      alert("Proizvod je već dodan u favorite")
-    )
-   
-   
-    }
-    const getFavorites = async () => {
-      const data= await getDocs(favoritsColletionRef);
-      setFavorites(data.docs.map((doc)=>({...doc.data(), id:doc.id}))); 
-    };
-
+    const deleteFavorit = async(id)=>{
+        const userDoc = doc(db,"favoriti", id)
+        await deleteDoc(userDoc)
+        const filtered=favorit.filter((product)=>product.id!==id)
+        setFavorit(filtered)
+      }
 
 
     useEffect(() => {
-        const getProducts = async () => {
-          const data= await getDocs(productsCollectionRef);
-          setProducts(data.docs.map((doc)=>({...doc.data(), id:doc.id}))); 
+        const getFavorites = async () => {
+          const data= await getDocs(favoritesCollectionRef);
+          setFavorit(data.docs.map((doc)=>({...doc.data(), id:doc.id}))); 
         };
     
-      
     
-    
-        getProducts();
         getFavorites();
       }, []);
 
-    return (
-        <div className="Cards">
-        {products.filter( (product) => product.tag1===tag || product.tag2===tag).map((product) =>{
+
+    return ( 
+        <div className="Favorites">
+        {favorit.map( (product) =>{
             return (
                 <div className="container py-5">
                 <div className="row justify-content-center mb-3">
@@ -98,12 +72,10 @@ const Cards = () => {
                            
                             <div className="d-flex flex-column mt-4">
                               
-                              <button className="btn btn-outline-primary btn-sm mt-2" type="button" onClick={()=>createCart(product)}>
-                                Dodaj u košaricu
+                              <button className="btn btn-outline-primary btn-sm mt-2" type="button" onClick={()=>{deleteFavorit(product.id)}}>
+                                Ukloni
                               </button>
-                             <button className="btn btn-outline-primary btn-sm mt-2" type="button"  onClick={()=>createFavorite(product)}>
-                                Dodaj u favorite
-                              </button>
+                             
                             </div>
                           </div>
                         </div>
@@ -117,7 +89,8 @@ const Cards = () => {
        
        
 
-      );
-}
+      
+     );
+    }
  
-export default Cards;
+export default Favorites;

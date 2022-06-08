@@ -1,19 +1,23 @@
 import { db } from "./firebase-config";
 import {useState, useEffect} from "react"
-import {collection,  getDocs,addDoc}
+import {collection,  getDocs, addDoc}
  from 'firebase/firestore';
 
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 
-const Cards = () => {
+
+
+
+const SearchCards = () => {
+  const [favorites, setFavorites]=useState([])
     const [products, setProducts] = useState([])
-    const [favorites, setFavorites]=useState([])
     const [disable, setDisable]=useState(false);
     const productsCollectionRef=collection(db, 'proizvodi')
+    const {term} = useParams();
     const cartsCollectionRef=collection(db, 'kosarica')
     const favoritsColletionRef=collection(db,'favoriti');
-    const {tag} = useParams();
+
 
     const createCart = async (product) =>{
       
@@ -23,8 +27,8 @@ const Cards = () => {
     const createFavorite = async (product) =>{
       getFavorites();
       const filtered=favorites.filter((favorite)=>favorite.name==product.name);
-      if(filtered.length==0  ){
-       
+      if(filtered.length==0){
+        
       await addDoc(favoritsColletionRef, {name:product.name, picture:product.picture, price:product.price, 
         manufacturer: product.manufacturer, description:product.description})
         alert("Dodali ste proizvod u favorite")
@@ -44,20 +48,27 @@ const Cards = () => {
 
     useEffect(() => {
         const getProducts = async () => {
+          
           const data= await getDocs(productsCollectionRef);
           setProducts(data.docs.map((doc)=>({...doc.data(), id:doc.id}))); 
         };
-    
-      
-    
+       
     
         getProducts();
         getFavorites();
       }, []);
+    
+    return ( 
+        <div className="searchCards">
+         <p className="searchTitle">Rezultati pretrage za {term}:</p>   
+        {products.filter((product) => {
+            if (term==""){
+                return product
 
-    return (
-        <div className="Cards">
-        {products.filter( (product) => product.tag1===tag || product.tag2===tag).map((product) =>{
+            } else if(product.name.toLowerCase().includes(term.toLowerCase())){
+                return product
+            }
+        }).map((product) =>{
             return (
                 <div className="container py-5">
                 <div className="row justify-content-center mb-3">
@@ -101,7 +112,7 @@ const Cards = () => {
                               <button className="btn btn-outline-primary btn-sm mt-2" type="button" onClick={()=>createCart(product)}>
                                 Dodaj u košaricu
                               </button>
-                             <button className="btn btn-outline-primary btn-sm mt-2" type="button"  onClick={()=>createFavorite(product)}>
+                               <button className="btn btn-outline-primary btn-sm mt-2" type="button"  onClick={()=>createFavorite(product)}>
                                 Dodaj u favorite
                               </button>
                             </div>
@@ -113,11 +124,9 @@ const Cards = () => {
                 </div>
             );
         })}
+        
         </div>
-       
-       
-
-      );
+     );
 }
  
-export default Cards;
+export default SearchCards;
